@@ -12,6 +12,12 @@ module.exports = {
         'red-custom': '#FF4858',
         'black-custom': '#373737',
       },
+      backgroundColor: {
+        'lightblue-500': '#40BFFF',
+        'lightblue-200': '#BCDDFE',
+        'red-custom': '#FF4858',
+        'black-custom': '#373737',
+      },
       backgroundImage: () => ({
         'banner': "url('/image/banner.png')",
         'logo': "url('/icons/favicon.png')",

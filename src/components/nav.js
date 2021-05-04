@@ -1,7 +1,15 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 
 function Nav() {
+
+  const router = useRouter()
+
+  const handleClickLogin = () => {
+    router.push('/login')
+  }
+
   return (
     <Fragment>
       <nav className='flex flex-col p-6 relative'>
@@ -34,7 +42,7 @@ function Nav() {
               </li>
             </ul>
           </div>
-          <div className='flex text-sm cursor-pointer absolute right-8'>
+          <div className='flex text-sm cursor-pointer absolute right-8' onClick={handleClickLogin}>
             <div className='bg-profile w-6 h-6 bg-no-repeat' ></div>
             <span className='hidden md:block'>My Profile</span>
           </div>

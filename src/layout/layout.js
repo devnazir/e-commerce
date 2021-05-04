@@ -1,9 +1,9 @@
 import Nav from "../components/nav"
 
-function Layout({ children }) {
+function Layout({ children, hiddenNav }) {
   return (
     <div className='container max-w-screen-2xl mx-auto'>
-      <Nav />
+      {hiddenNav ? '' : <Nav />}
       {children}
     </div>
   )

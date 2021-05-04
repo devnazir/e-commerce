@@ -1,9 +1,10 @@
 import Image from 'next/image'
 
 function Banner({ products }) {
+
   return (
     <div className='relative'>
-      <Image src="/image/banner.png" layout='responsive' width={1600} height={700} quality={100}></Image>
+      <Image loading='lazy' src="/image/banner.png" layout='responsive' width={1600} height={700} quality={100}></Image>
       <h1 className='absolute top-0 md:w-2/5 flex sm:leading-normal h-full items-center p-12 text-white text-3xl sm:text-5xl font-semibold'>Super Flash Sale 50% Off</h1>
       <div className='p-12 flex w-full h-18 justify-center absolute -bottom-28 sm:-bottom-60'>
         {
