@@ -6,7 +6,7 @@ import Link from 'next/link'
 function Login() {
   useTitle("Login")
   const { register, handleSubmit, formState: { errors } } = useForm()
-  
+
   const onSubmit = (user) => {
     const { email, password } = user
     console.log(email, password)
@@ -31,10 +31,8 @@ function Login() {
           <button type='submit' className='bg-lightblue-500 px-6 py-4 text-white sm:w-2/6 rounded-md w-4/5 shadow-2xl'>Sign In</button>
         </form>
         <AnotherSignIn />
-        
-        <Link href='/'>
-          <a className='mt-4 hover:text-blue-400'>Back</a>
-        </Link>
+
+        <a href='/' className='mt-4 hover:text-blue-400'>Back</a>
       </div>
     </Layout>
   )

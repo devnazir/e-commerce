@@ -1,13 +1,10 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 
 function Nav() {
 
-  const router = useRouter()
-
   const handleClickLogin = () => {
-    router.push('/login')
+    window.location.href = `${window.location.origin}/login`
   }
 
   return (
