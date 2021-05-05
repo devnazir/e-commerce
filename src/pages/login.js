@@ -1,7 +1,6 @@
-import Layout from '../layout/layout'
+import Layout from '../layout'
 import { useTitle } from '../hook/useTitle'
 import { useForm } from 'react-hook-form'
-import Link from 'next/link'
 
 function Login() {
   useTitle("Login")
@@ -13,7 +12,7 @@ function Login() {
   }
 
   return (
-    <Layout hiddenNav={true}>
+    <Layout hiddenNav={true} hiddenFooter={true}>
       <div className='flex flex-col items-center h-screen justify-center w-full'>
         <div className='bg-logo w-24 h-24 bg-cover bg-no-repeat'></div>
         <h3 className='mt-4'>Welcome to E-Comm</h3>

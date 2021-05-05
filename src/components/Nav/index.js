@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Fragment } from 'react'
 
 function Nav() {
@@ -13,29 +12,23 @@ function Nav() {
         <div className='flex items-center'>
           <div className='flex'>
             <div className='bg-logo w-6 h-6 bg-cover mr-3'></div>
-            <h1 className='font-semibold text-xl'>E-Comm</h1>
+            <h1 className='font-semibold text-xl'>
+              <a href="/">E-Comm</a>
+            </h1>
           </div>
           <div className='w-2/5'>
             <ul className='hidden md:flex justify-evenly'>
               <li>
-                <Link href='/'>
-                  <a className='text-lightblue-500'>Home</a>
-                </Link>
+                <a href='/' className='text-lightblue-500'>Home</a>
               </li>
               <li>
-                <Link href='/bags'>
-                  <a>Bags</a>
-                </Link>
+                <a href='/category/bags'>Bags</a>
               </li>
               <li>
-                <Link href='/sneakers'>
-                  <a>Sneaker</a>
-                </Link>
+                <a href='/category/sneaker'>Sneaker</a>
               </li>
               <li>
-                <Link href='/contact'>
-                  <a>Contact</a>
-                </Link>
+                <a href='/contact'>Contact</a>
               </li>
             </ul>
           </div>
@@ -45,7 +38,7 @@ function Nav() {
           </div>
         </div>
       </nav>
-    </Fragment>
+    </Fragment >
   )
 }
 

@@ -20,10 +20,14 @@ module.exports = {
       },
       backgroundImage: () => ({
         'banner': "url('/image/banner.png')",
+        'banner-shoes': "url('/image/banner-2.png')",
         'logo': "url('/icons/favicon.png')",
         'cart': "url('/icons/Cart.png')",
         'profile': "url('/icons/profile.png')"
-      })
+      }),
+      screens: {
+        'xs': { 'max': '450px' }
+      }
     },
   },
   variants: {
