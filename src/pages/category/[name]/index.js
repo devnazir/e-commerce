@@ -1,12 +1,11 @@
-import Layout from "../../../layout"
 import { useRouter } from 'next/router'
+import Layout from '../../../layout'
 
 function Category() {
   const router = useRouter()
-  console.log(router)
   return (
     <Layout>
-      Comment
+
     </Layout>
   )
 }

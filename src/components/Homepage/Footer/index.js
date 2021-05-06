@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer className='flex flex-col bg-lightblue-200 mt-24 '>
-      <div className='flex py-10 px-4 sm:p-10 flex-wrap justify-evenly'>
+    <footer className='flex flex-col bg-lightblue-200  '>
+      <div className='flex py-10 px-4 sm:p-10 flex-wrap sm:flex-nowrap justify-evenly'>
         <Box paragraf='Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa facilis omnis hic tenetur quos impedit aliquid animi reprehenderit suscipit aliquam.'>
           <div className='flex items-center'>
             <div className='bg-logo w-8 h-8 bg-cover mr-4'></div>
@@ -27,8 +27,8 @@ function Box({ children, title, paragraf }) {
   return (
     <div className='w-full sm:w-56 m-4 sm:m-6'>
       {children}
-      <span className='font-semibold text-md sm:text-lg'>{title}</span>
-      <p className='text-sm mt-2'>{paragraf}</p>
+      <span className='font-semibold text-md sm:text-lg xs:text-md'>{title}</span>
+      <p className='text-sm mt-2 xs:text-xs '>{paragraf}</p>
     </div>
   )
 }

@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-
 function Banner({ products }) {
   return (
     <div className='relative'>
@@ -10,7 +8,7 @@ function Banner({ products }) {
         {
           products.slice(0, 3).map(product => {
             return (
-              <div className='flex flex-col border-0 sm:border-2 border-gray-100 m-4 w-24 sm:w-44 lg:w-80' key={product.product_id}>
+              <div className='flex flex-col border-0 sm:border-2 border-gray-100 m-4 w-24 sm:w-44 lg:w-80 bg-white' key={product.product_id}>
                 <Image
                   src={product.src?.img}
                   width={250}
@@ -30,4 +28,20 @@ function Banner({ products }) {
   )
 }
 
-export default Banner
+function BannerShoes() {
+  return (
+    <div className='w-full h-96 my-16 lg:my-32 bg-lightblue-500 relative'>
+      <div className='w-full lg:w-1/2 h-full flex flex-col lg:p-24 sm:p-12 p-6 justify-center text-white'>
+        <h2 className='text-4xl xs:text-3xl'>Adidas Men Running Sneakers</h2>
+        <span className='mt-4 xs:text-sm'>performance and design. Taken right to the edge.</span>
+        <a href='/category/all' className='w-max text-md mt-2 underline xs:text-xs'>Shop Now</a>
+      </div>
+      <div className='absolute bg-banner-shoes hidden lg:block lg:w-1/2 bg-cover -top-60 lg:-top-44 bottom-0 lg:right-0 '></div>
+    </div>
+  )
+}
+
+export {
+  Banner,
+  BannerShoes
+}

@@ -1,4 +1,4 @@
-import Layout from "../../layout"
+import Layout from "../../../../layout"
 import { useRouter } from 'next/router'
 
 function Category() {
@@ -6,7 +6,7 @@ function Category() {
   console.log(router)
   return (
     <Layout>
-      Index
+      Comment
     </Layout>
   )
 }
