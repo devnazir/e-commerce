@@ -1,10 +1,10 @@
-import Footer from "../components/Homepage/Footer"
-import Nav from "../components/Homepage/Nav"
+import Footer from "../../components/Footer"
+import { NavMain } from '../../components/Nav'
 
 function Layout({ children, hiddenNav, hiddenFooter }) {
   return (
     <div className='container max-w-screen-2xl mx-auto'>
-      {hiddenNav ? '' : <Nav />}
+      {hiddenNav ? '' : <NavMain />}
       {children}
       {hiddenFooter ? '' : <Footer />}
     </div>

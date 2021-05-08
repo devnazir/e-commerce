@@ -18,7 +18,7 @@ function Links() {
             <a href='/category/bags'>Bags</a>
           </li>
           <li>
-            <a href='/category/sneaker'>Sneaker</a>
+            <a href='/category/sneakers'>Sneakers</a>
           </li>
           <li>
             <a href='/contact'>Contact</a>

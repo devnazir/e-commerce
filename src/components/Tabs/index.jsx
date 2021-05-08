@@ -1,13 +1,13 @@
 import { Fragment } from 'react'
-import LinksTab from './Links'
+import Links from './Links'
 
-function TabsCategory({ setCategory }) {
+function Tabs({ setCategory }) {
   return (
     <Fragment>
       <h1 className='text-center xs:text-xl text-3xl'>Best Seller</h1>
-      <LinksTab setCategory={setCategory} />
+      <Links setCategory={setCategory} />
     </Fragment>
   )
 }
 
-export default TabsCategory
+export default Tabs

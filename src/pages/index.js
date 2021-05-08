@@ -1,25 +1,38 @@
 import { useState } from 'react'
-import Layout from "../layout"
-import { BannerShoes, Banner } from "../components/Homepage/Banner"
-import TabsCategory from '../components/Homepage/Tabs'
-import CardProducts from '../components/Homepage/CardProducts'
-import Service from '../components/Homepage/Service'
-import Featured from '../components/Homepage/Featured'
+import LayoutMain from "../layout/main"
+import LayoutError from "../layout/error"
+import { CardContainerGrid, Card } from '../components/Card'
+import { Banner, BannerShoes } from '../components/Banner'
+import Tabs from '../components/Tabs'
+import Service from '../components/Service'
+import { useTitle } from '../hook/useTitle'
 
 function Index({ products }) {
+
+  useTitle('Homepage')
+
+  if (!products) {
+    return (
+      <LayoutError>
+        <h1 className='text-lg md:text-3xl m-auto'>Error Fetch API, please try again later or refresh</h1>
+      </LayoutError>
+    )
+  }
+
   const [category, setCategory] = useState("all")
 
   return (
-    <Layout>
+    <LayoutMain>
       <Banner products={products} />
       <div className='mt-24 sm:mt-56 mb-12'>
-        <TabsCategory setCategory={setCategory} />
-        <CardProducts products={products} category={category} />
+        <Tabs setCategory={setCategory} />
+        <CardContainerGrid md={4}>
+          <Card products={products} category={category} length={8} />
+        </CardContainerGrid>
         <BannerShoes />
         <Service />
-        <Featured products={products} />
       </div>
-    </Layout>
+    </LayoutMain>
   )
 }
 

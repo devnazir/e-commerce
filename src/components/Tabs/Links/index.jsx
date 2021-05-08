@@ -1,5 +1,4 @@
-function LinksTab({ setCategory }) {
-
+function Links({ setCategory }) {
   const handleClickTabsCategory = (tab) => {
     const category = tab.target.dataset.category
     setCategory(category)
@@ -28,4 +27,4 @@ function LinksTab({ setCategory }) {
   )
 }
 
-export default LinksTab
+export default Links

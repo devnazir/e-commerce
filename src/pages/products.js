@@ -1,4 +1,4 @@
-import Layout from "../layout"
+import Layout from "../layout/main"
 
 function Products({ products }) {
   return (
