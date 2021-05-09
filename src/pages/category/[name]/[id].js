@@ -1,13 +1,64 @@
 import { useRouter } from 'next/router'
 import Layout from '../../../layout/main'
-import {useTitle} from '../../../hook/useTitle'
+import { Card } from '../../../components/Card'
+import { useEffect, useState } from 'react'
 
-function CategoryById() {
+function CategoryById({ products }) {
   const router = useRouter()
-  console.log(router)
+  const productId = router.query.id
+  const [loading, setLoading] = useState(true)
+  const [product, setProduct] = useState([])
+  const [total, setTotal] = useState(1)
+  const [cart, setCart] = useState([{}])
+
+  useEffect(() => {
+    const filterProducts = products?.find(product => product.product_id == productId)
+    document.title = filterProducts?.name
+
+    setProduct(filterProducts)
+    setLoading(false)
+  }, [])
+
+  const handleClickPlusMinus = (type) => {
+    if (type === 'plus') {
+      return setTotal(current => current + 1)
+    } else {
+      return setTotal(current => {
+        if (current > 1) {
+          return current - 1
+        }
+        return 1
+      })
+    }
+  }
+
+  const goToProduct = () => {
+    return false
+  }
+
+  if (loading) {
+    return (
+      <Layout>
+        <div>Loading</div>
+      </Layout>
+    )
+  }
+
   return (
     <Layout>
-
+      <div className='flex xs:flex-col xs:p-0 p-10 w-full'>
+        <div className='xs:w-full w-2/6 md:w-3/12'>
+          <Card product={product} xs={true} goToProduct={goToProduct} />
+        </div>
+        <div className='xs:p-4 flex justify-between items-center'>
+          <div>
+            <button className='px-2 bg-gray-200' onClick={() => handleClickPlusMinus('min')}>-</button>
+            <span className='mx-2'>{total}</span>
+            <button className='px-2 bg-gray-200' onClick={() => handleClickPlusMinus('plus')}>+</button>
+          </div>
+          <button className='bg-lightblue-500 text-white p-2'>Add to Cart</button>
+        </div>
+      </div>
     </Layout>
   )
 }
