@@ -9,7 +9,7 @@ function CategoryById({ products }) {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
   const [total, setTotal] = useState(1)
-  const [cart, setCart] = useState([{}])
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
     const filterProducts = products?.find(product => product.product_id == productId)
