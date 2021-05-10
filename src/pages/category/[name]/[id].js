@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import Layout from '../../../layout/main'
 import { Card } from '../../../components/Card'
 import { useEffect, useState } from 'react'
+import { useCart } from '../../../hook/useCart'
 
 function CategoryById({ products }) {
   const router = useRouter()
@@ -9,7 +10,7 @@ function CategoryById({ products }) {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
   const [total, setTotal] = useState(1)
-  const [cart, setCart] = useState([])
+  const { cart, setCart } = useCart()
 
   useEffect(() => {
     const filterProducts = products?.find(product => product.product_id == productId)
@@ -31,6 +32,18 @@ function CategoryById({ products }) {
       })
     }
   }
+
+  const addProductToCart = (product) => {
+    setCart(prev => {
+      const filter = prev.filter(prevProduct => prevProduct.product_id === product.product_id)
+      if (filter) {
+        return [{ ...product, total }]
+      }
+
+      return [...prev, product]
+    })
+  }
+
 
   const goToProduct = () => {
     return false
@@ -56,7 +69,7 @@ function CategoryById({ products }) {
             <span className='mx-2'>{total}</span>
             <button className='px-2 bg-gray-200' onClick={() => handleClickPlusMinus('plus')}>+</button>
           </div>
-          <button className='bg-lightblue-500 text-white p-2'>Add to Cart</button>
+          <button className='bg-lightblue-500 text-white p-2' onClick={() => addProductToCart(product)}>Add to Cart</button>
         </div>
       </div>
     </Layout>
