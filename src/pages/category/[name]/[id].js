@@ -10,7 +10,7 @@ function CategoryById({ products }) {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
   const [total, setTotal] = useState(1)
-  const { cart, setCart } = useCart()
+  const { setCart } = useCart()
 
   useEffect(() => {
     const filterProducts = products?.find(product => product.product_id == productId)
@@ -35,15 +35,12 @@ function CategoryById({ products }) {
 
   const addProductToCart = (product) => {
     setCart(prev => {
-      const filter = prev.filter(prevProduct => prevProduct.product_id === product.product_id)
-      if (filter) {
-        return [{ ...product, total }]
+      return {
+        ...prev,
+        product: [{ ...product, total }]
       }
-
-      return [...prev, product]
     })
   }
-
 
   const goToProduct = () => {
     return false
@@ -63,7 +60,7 @@ function CategoryById({ products }) {
         <div className='xs:w-full w-2/6 md:w-3/12'>
           <Card product={product} xs={true} goToProduct={goToProduct} />
         </div>
-        <div className='xs:p-4 flex justify-between items-center'>
+        <div className='xs:p-4 flex justify-between sm:w-1/6 p-4 items-center sm:items-end'>
           <div>
             <button className='px-2 bg-gray-200' onClick={() => handleClickPlusMinus('min')}>-</button>
             <span className='mx-2'>{total}</span>

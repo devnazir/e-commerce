@@ -1,19 +1,31 @@
 import Links from './Links'
 import { Fragment, useEffect, useState } from 'react'
+import { useCart } from '../../hook/useCart'
 
 function NavMain() {
   const [totalProduct, setTotalProduct] = useState(0)
+  const [elTotal, setElTotal] = useState(false)
+  const { cart } = useCart()
 
   const handleClickLogin = () => {
     window.location.href = `${window.location.origin}/login`
   }
 
   useEffect(() => {
-    const itemProducts = JSON.parse(localStorage.getItem('cart'))
-    const filter = Array.from(new Set(itemProducts.map((item) => item.product_id)))
-    setTotalProduct(filter.length)
-  }, [])
-
+    if(cart.product) {
+      let items = null
+      if(localStorage.getItem('cart')) {
+        items = JSON.parse(localStorage.getItem('cart'))
+        items.product.push(...cart.product)
+        setTotalProduct(items.product.length)
+        
+        return localStorage.setItem('cart', JSON.stringify(items))
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart))
+      setElTotal(true)
+    }
+  }, [cart.product])
 
   return (
     <Fragment>
@@ -25,7 +37,7 @@ function NavMain() {
             <span className='hidden md:block'>My Profile</span>
           </div>
           <div className='md:right-4 bg-cart w-6 h-6 bg-no-repeat absolute right-10'>
-            <div className='w-4 h-4 bg-blue-200 rounded-full absolute -right-1 -top-1 flex justify-center items-center text-xs'>{totalProduct}</div>
+            <div className={`${elTotal ? 'w-4 h-4 bg-blue-200 rounded-full absolute -right-1 -top-1 flex justify-center items-center text-xs' : ''}`}>{elTotal ? totalProduct : ""}</div>
           </div>
         </div>
       </nav>
