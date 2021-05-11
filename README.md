@@ -1,2 +1,1 @@
-
-gyvhuhn
+GAK DILANJUTIN
