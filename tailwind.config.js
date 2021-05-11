@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.js", "./src/components/**/**/*.js"],
+  purge: ["./src/**/**/**.js"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
